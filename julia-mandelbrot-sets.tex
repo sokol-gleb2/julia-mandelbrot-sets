@@ -5,28 +5,16 @@
 \usepackage{adjustbox,graphicx, caption}
 \usepackage{hyperref}
 \usepackage[margin=1in]{geometry}% Just for this example
-% \usepackage{subcaption}
 
 % ========= Theorem-like environments =========
 % These lines define theorem-like environments.
 % See https://www.overleaf.com/learn/latex/theorems_and_proofs
-% \theoremstyle{definition}
-% \newtheorem{exmp}{Example}[section]
-% \newtheorem*{exmp*}{Example}
-% \newtheorem{prop}{Proposition}[section]
-% \newtheorem{lem}[prop]{Lemma}
-% \newtheorem{thm}[prop]{Theorem}
-% \newtheorem{cor}[prop]{Corollary}
-% \newtheorem{remk}[prop]{Remark}
-% % \newtheorem{defn}[prop]{Definition}
-% \newtheorem{defn}{Definition}[section]
-
 \theoremstyle{definition}
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{defn}{Definition}[section]% <--- for definitions
-\newtheorem{prop}{Proposition}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{exmp}{Example}[section]
+\newtheorem{defn}{Definition}[section] % <--- for definitions
+\newtheorem{theorem}[defn]{Theorem} % <--- modified
+\newtheorem{prop}[defn]{Proposition}
+\newtheorem{lemma}[defn]{Lemma}
+\newtheorem{exmp}[defn]{Example}
 \numberwithin{equation}{section} % <--- for equations
 % =============================================
 
@@ -38,7 +26,7 @@
 % To generate References.bib, I recommend https://www.mybib.com/
 % rather than trying to write the .bib file yourself.
 %
-\usepackage{csquotes,biblatex}
+\usepackage[]{csquotes, biblatex}
 \addbibresource{References.bib}
 % ================================
 
@@ -47,10 +35,6 @@
 
 \begin{document}
 \maketitle
-
-\begin{abstract}
-Your abstract.
-\end{abstract}
 
 \section{Introduction}
 
@@ -115,13 +99,13 @@ Following this, we arrive at the following defintion.
     \begin{minipage}{.5\textwidth}
         \centering
         \includegraphics[width=.5\linewidth]{figures/Julia_0.285_0.png}
-        \caption[width=.2\textwidth]{Julia set for $f_c$, $c =  0.285 + 0i$}
+        \caption[width=.2\textwidth]{Julia set for $f_c$, $c =  0.285 + 0i$ \cite{julia-sets-examples}}
         \label{fig:Julia_ex_1}
     \end{minipage}%
     \begin{minipage}{.5\textwidth}
         \centering
         \includegraphics[width=.5\linewidth]{figures/Julia_-0.8_0.156.png}
-        \caption[width=.2\textwidth]{Julia set for $f_c$, $c = -0.8 + 0.156i$}
+        \caption[width=.2\textwidth]{Julia set for $f_c$, $c = -0.8 + 0.156i$ \cite{julia-sets-examples}}
         \label{fig:Julia_ex_2}
     \end{minipage}
 \end{figure}
@@ -130,7 +114,7 @@ Following this, we arrive at the following defintion.
 
 Let's now look at the two different types of Julia sets.
 
-\begin{defn}
+\begin{defn}[\cite{defn-of-fatou-sets-dust}]
     There are two types of Julia sets: connected sets - also known as Fatou Sets - and Cantor sets - also known as Fatou Duct.
     The Fatou set is the set of points in the complex plane where the Julia set is locally connected. More precisely, a point z in the Fatou set of a Julia set J is said to be locally connected if there exists a neighborhood U of z such that the set of all points in U that belong to J is connected.
     While the Cantor set is a subset C of the Fatou set F of a Julia set J that satisfies the following properties:
@@ -144,6 +128,15 @@ Let's now look at the two different types of Julia sets.
 
 \end{defn}
 
+We just need one more definition to set us up perfectly for the important theorem. It's the definition many have heard of - but I will put in it just in case you haven't.
+
+\begin{defn}
+    Critical points are the points in the complex plane where the derivative of a function is zero or undefined. In other words:
+    \begin{center}
+        CPs$( f(z) )$ = $\{ z : f’(z) = 0~||~f’(z) $ is undefined $ \}$.
+    \end{center}
+    
+\end{defn}
 
 \begin{theorem}[Dichotomy Theorem]
     For any polynomial f, if all the critical points of f belong to $K_f$, then $J_f$ is connected and if none of the critical points of f belong to $K_f$, then $J_f$ is a Cantor set.
@@ -160,9 +153,12 @@ Let's now look at the two different types of Julia sets.
         \item If all the critical points of f belong to $K_f$, then $J_f$ is connected.
         \item If none of the critical points of f belong to $K_f$, then $J_f$ is a Cantor set.
     \end{enumerate}
-    I will not get into the proof of them, but you can read about it here (https://www.mdpi.com/2504-3110/3/1/6).
+    I will not get into the proof of them, but you can read about it here \cite{dichotomy}.
 
 \end{proof}
 
+
+
+\printbibliography
 
 \end{document}
