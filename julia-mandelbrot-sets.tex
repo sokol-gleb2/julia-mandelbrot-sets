@@ -128,12 +128,20 @@ Let's now look at the two different types of Julia sets.
 
 \end{defn}
 
+\begin{exmp}
+    Consider the complex quadratic polynomial $f(z) = z^2 - 1$. The Julia set J of this polynomial is the set of all points in the complex plane that have chaotic behavior under iterations of f.
+
+    The Fatou set F of this Julia set consists of all points in the complex plane that have stable behavior under iterations of f.
+
+    As for an example of a Cantor set (or Fatou dust) for this Julia set, we could consider the set of points that are attracted to a repelling periodic orbit of f. Specifically, let p be the fixed point of f given by $p = (1 + \sqrt{5})/2$, and let C be the set of all points in the complex plane that converge to p under iterations of f. This set C is a Cantor set.
+\end{exmp}
+
 We just need one more definition to set us up perfectly for the important theorem. It's the definition many have heard of - but I will put in it just in case you haven't.
 
 \begin{defn}
     Critical points are the points in the complex plane where the derivative of a function is zero or undefined. In other words:
     \begin{center}
-        CPs$( f(z) )$ = $\{ z : f’(z) = 0~||~f’(z) $ is undefined $ \}$.
+        CPs$( f(z) )$ = $\{ z : f'(z) = 0~||~f'(z) $ is undefined $ \}$.
     \end{center}
     
 \end{defn}
