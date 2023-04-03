@@ -15,6 +15,7 @@
 \newtheorem{prop}[defn]{Proposition}
 \newtheorem{lemma}[defn]{Lemma}
 \newtheorem{exmp}[defn]{Example}
+\newtheorem{remark}[defn]{Remark}
 \numberwithin{equation}{section} % <--- for equations
 % =============================================
 
@@ -91,7 +92,7 @@ Following this, we arrive at the following defintion.
 
 
 \begin{exmp}
-    If we paint the sequence produce by $z_0$ at its center that doesn't diverge to infinity in black colour, and otherwise we paint the pixel a colour determined by how quickly sequence gets further than 2 from the origin (hence diverges), we get interesting "fractals", like the one at Figures \ref{fig:Julia_ex_1} and \ref{fig:Julia_ex_2}.
+    If we paint the sequence produced by $z_0$ at its center that doesn't diverge to infinity in black colour, and otherwise we paint the pixel a colour determined by how quickly sequence gets further than 2 from the origin (hence diverges), we get interesting "fractals", like the one at Figures \ref{fig:Julia_ex_1} and \ref{fig:Julia_ex_2}.
 \end{exmp}
 
 \begin{figure}[h]
@@ -115,7 +116,7 @@ Following this, we arrive at the following defintion.
 Let's now look at the two different types of Julia sets.
 
 \begin{defn}[\cite{defn-of-fatou-sets-dust}]
-    There are two types of Julia sets: connected sets - also known as Fatou Sets - and Cantor sets - also known as Fatou Duct.
+    There are two types of Julia sets: connected sets - also known as Fatou Sets - and Cantor sets - also known as Fatou Dust.
     The Fatou set is the set of points in the complex plane where the Julia set is locally connected. More precisely, a point z in the Fatou set of a Julia set J is said to be locally connected if there exists a neighborhood U of z such that the set of all points in U that belong to J is connected.
     While the Cantor set is a subset C of the Fatou set F of a Julia set J that satisfies the following properties:
     \begin{enumerate}
@@ -166,6 +167,44 @@ We just need one more definition to set us up perfectly for the important theore
 \end{proof}
 
 
+\section{Mandelbrot Sets}
+
+The Mandelbrot set, M, is defined by the same iteration process used to define Julia sets, but applied in a different way. Instead of using the complex plane to represent the different choices of $z_0$, it represents different values of c.
+
+\begin{defn}
+    Let $c \in \mathbb{C}^{*}$ be a complex number on the Reimann sphere. For the point $z_0 = 0$, we generate a sequence that satisfies the iteration of the equation \ref{eq:1}. We define a set of $c$'s for which the sequence does not diverge to infinity as the Mandelbrot set. And we denote it as $M$.
+\end{defn}
+
+
+\begin{remark}
+    Starting with $z_0 = 0$ allows us to directly compute the sequence for each value of $c$ without having to calculate a separate starting value for each point in the complex plane. It also ensures that we are always working with the same initial value, making it easier to compare different values of $c$ and generate a consistent image of the Mandelbrot set.
+\end{remark}
+
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=.5\linewidth]{figures/mandelbrot_example_1.jpeg}
+        \caption[width=.2\textwidth]{Famous Mandelbrot Example \cite{mandelbrot-sets-examples}}
+        \label{fig:Mandelbrot_ex_1}
+    \end{minipage}%
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=.5\linewidth]{figures/mandelbrot_example_1_zommed_in.jpeg}
+        \caption[width=.2\textwidth]{Zoomed in to the gap between the "head" and the "body" \cite{mandelbrot-sets-examples}}
+        \label{fig:Mandelbrot_ex_2}
+    \end{minipage}
+\end{figure}
+
+
+As with Julia sets, we paint the pixel black if the sequence produced by the c at its center belongs to M, and otherwise we paint the pixel a color determined by how quickly the sequence diverges.
+
+
+Figure \ref{fig:Mandelbrot_ex_2} is sometimes also called the "seahorse valley". 
+
+\section{Applications of Julia and Mandelbrot Sets}
+
+For a while Julia and Mandelbrot sets didn't have much use. Their main purpose was the amazing shapes they produced in computer graphics. However it has since been used in Chaos theory, cryptography, signal processing, Number theory, and a lot more. There was a very interesting paper released by M. A. Alia and A. B. Samsudin about the new key exchange protocol based on what we have looked at today - definitely recommend a read \cite{cryptography}.
 
 \printbibliography
 
